@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stylish Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+      body {
+            height: 100vh;
+            background: url('image/background3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 16px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 14px 18px 14px 45px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+
+    .input-box i {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .input-box input::placeholder {
+      color: #eee;
+    }
+
+    .input-box input:focus {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .error-message {
+      color: #ffcccc;
+      font-size: 13px;
+      margin-top: -12px;
+      margin-bottom: 10px;
+    }
+
+    .form-box input[type="submit"] {
+      width: 100%;
+      background-color: #ffffff;
+      color: #333;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .form-box input[type="submit"]:hover {
+      background-color: #f1f1f1;
+    }
+
+    .form-box a {
+      display: block;
+      text-align: center;
+      color: #f1f1f1;
+      margin-top: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .form-box a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .form-box {
+        padding: 30px 25px;
+      }
+    }
+  </style>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="form-box">
+    <h2>Register</h2>
+    <form action="Register_stu" method="post" onsubmit="return valid()">
+      <div class="input-box">
+        <i class="fas fa-user"></i>
+        <input type="text" name="name" placeholder="Enter Name" required>
+      </div>
+      <div class="input-box">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" placeholder="Enter Email" required>
+      </div>
+      <div class="input-box">
+        <i class="fas fa-phone"></i>
+        <input type="text" name="mob" pattern="[6789][0-9]{9}" placeholder="Enter Mobile" required>
+      </div>
+      <div class="input-box">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="pwd1" name="pwd" placeholder="Enter Password" required>
+      </div>
+      <div class="input-box">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="pwd2" placeholder="Confirm Password" required>
+      </div>
+      <span class="error-message" id="one"></span>
+      <input type="submit" value="Register">
+    </form>
+    <a href="index.html">Already have an account? Login</a>
+  </div>
+
+  <script>
+    function valid() {
+      const pwd1 = document.getElementById("pwd1").value.trim();
+      const pwd2 = document.getElementById("pwd2").value.trim();
+      const msg = document.getElementById("one");
+
+      if (pwd1 !== pwd2) {
+        msg.innerText = "⚠ Passwords do not match.";
+        return false;
+      } else {
+        msg.innerText = "";
+        return true;
+      }
+    }
+  </script>
+
+</body>
+</html>
